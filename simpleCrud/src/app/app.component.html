@@ -1,0 +1,60 @@
+<div class="container">
+  <div style="text-align:center" class="row">
+    <div class="col-md-8">
+    <h1>
+      Welcome to {{title}}!!
+    </h1>
+    </div>
+    <div class="col-md-8">
+      <div class="alert alert-success alert-dismissable" *ngIf="msg">
+        <a href="#" class="close" (click)="clickME()">&times;</a>
+         {{msg}}
+      </div>
+    </div>
+  </div>
+<div class="clearfix"></div>
+<hr>
+<h3>create section</h3>
+<div>
+  <label>Animal:</label>
+    <input type="text" placeholder="Enter animal here" id="animal" [(ngModel)]="subName.animal">
+      <label>Type:</label>
+    <input type="text" placeholder="Enter type here" id="type" [(ngModel)]="subName.type">
+      <button class="btn btn-success" (click)="addAnimal()">Create</button>
+  </div>
+<br>
+<h3>read & delete section</h3>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th width="390" class="text-center">Animal</th>
+      <th width="360" class="text-center">Type</th>
+      <th width="250" class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let name of names; let i = index">
+        <td>{{name.animal}}</td>
+        <td>{{name.type}}</td>
+        <td class="text-center">
+        <a class="btn btn-primary" (click)="editAnimal(i)">Edit</a>
+        <a class="btn btn-danger" (click)="deleteAnimal(i)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<div *ngIf="unHide">
+  <h3>update section</h3>
+    <div>
+      <label>Animal:</label>
+      <input type="text" placeholder="Enter animal here" id="animal" [(ngModel)]="newSubName.animal">
+      <label>Type:</label>
+      <input type="text" placeholder="Enter type here" id="type" [(ngModel)]="newSubName.type">
+      <button class="btn btn-success" (click)="updateAnimal()">Update</button>
+    </div>
+  </div>
+</div>
+
+
+
+
